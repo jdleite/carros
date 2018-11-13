@@ -2,6 +2,7 @@ package com.br.carros.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.br.carros.R;
@@ -22,7 +23,10 @@ public class DetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        mcarMock = new CarMock();
+        mcarMock = new CarMock(this);
+
+        mViewHolder.imgCarPicure = (ImageView) findViewById(R.id.img_car_pic);
+        mViewHolder.textManuFacture = (TextView) findViewById(R.id.text_manufacturer);
 
         mViewHolder.textModel = findViewById(R.id.text_model);
 
@@ -37,9 +41,10 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void setData(){
+        mViewHolder.imgCarPicure.setImageDrawable(mCar.picture);
         mViewHolder.textModel.setText(mCar.model);
         mViewHolder.textHorsePower.setText(String.valueOf(mCar.horsePower));
-        mViewHolder.textPrice.setText(String.valueOf(mCar.price));
+        mViewHolder.textPrice.setText("R$ " + String.valueOf(mCar.price));
     }
 
 
@@ -53,7 +58,9 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private static class ViewHolder {
+        ImageView imgCarPicure;
         TextView textModel;
+        TextView textManuFacture;
         TextView textHorsePower;
         TextView textPrice;
     }
