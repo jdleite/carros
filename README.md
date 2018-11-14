@@ -1,5 +1,5 @@
 # carros
 App de um listView de carros
 
-![Alt Text](https://github.com/{user}/{repo}/raw/{branch}/path/to/image.gif)
+![alt tag](http://domain.com/path/to/img.png "Description goes here")
 
